@@ -1,22 +1,18 @@
-[![official JetBrains project](https://jb.gg/badges/official-plastic.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
-[![Kotlin](https://img.shields.io/badge/Kotlin-1.9.20-blue.svg?style=flat&logo=kotlin)](https://kotlinlang.org)
+# UUID CLI
 
-# Kotlin/Native Template
-
-A mostly-empty template to get started creating a Kotlin/Native project. 
+A tiny project intended to play with Kotlin Native and UUIDs version 7. 
 
 ## Getting Started
 
-1. On the project page, click on the `Use this template` button
-2. Click on the `Create a new repository` drop-down item
-3. Fill in the details of the new repository you'll be creating under your account
-4. Click the `Create repository` button
-5. Browse to your repository and make the needed changes there.
+1. Clone this repository.
+2. Generate the `kexe` file by running `./gradlew build` inside the folder of the repository.
+3. Start generating UUIDs v7 by running `./build/bin/native/releaseExecutable/uuid-cli.kexe` from your terminal inside the folder of the repository.
 
-## Code of conduct
+Bear in mind, that the current implementation generates UUIDs using nanoseconds precision.
 
-Please read [our code of conduct](https://github.com/jetbrains#code-of-conduct).
+Do you want to generate several UUIDv7 at the same time? Try running `seq 10 | xargs -I {} ./build/bin/native/releaseExecutable/uuid-cli.kexe` from your terminal.
 
-## License
-
-This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LICENSE.md) file for details
+## Future plans
+- Support milli and microseconds and choosing among them via the CLI.
+- Decode UUIDs.
+- Generate UUIDs based on a given timestamp.
