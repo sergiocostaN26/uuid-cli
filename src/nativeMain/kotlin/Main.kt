@@ -5,6 +5,7 @@ private val NOW = Clock.System.now()
 private val epochSeconds: Long = NOW.epochSeconds
 private val nanos: Int = NOW.nanosecondsOfSecond
 private const val VERSION: Long = 7
+private const val VARIANT: Long = 2
 private fun getSequence(): Int =
     TODO("No bits reserved to avoid clashes between UUIDs generated on the same nanosecond with the same random bits")
 
@@ -17,13 +18,12 @@ private fun Int.getThirdChunk() = (this and 0x3fff).toLong()
 
 fun main(args: Array<String>) {
 
-    val unixTs = epochSeconds
 
     val uuid = setOf(
-        (unixTs shr 4).toString(16).padStart(8, '0'),
-        ((unixTs and 0b1111 shl 12) + nanos.getFirstChunk()).toString(16).padStart(4, '0'),
+        (epochSeconds shr 4).toString(16).padStart(8, '0'),
+        ((epochSeconds and 0b1111 shl 12) + nanos.getFirstChunk()).toString(16).padStart(4, '0'),
         ((VERSION shl 12) + nanos.getSecondChunk()).toString(16).padStart(4, '0'),
-        nanos.getThirdChunk().toString(16).padStart(4, '0'),
+        ((VARIANT shl 14) + nanos.getThirdChunk()).toString(16).padStart(4, '0'),
         random.toString(16).padStart(12, '0')
     )
 
