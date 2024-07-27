@@ -1,8 +1,8 @@
 plugins {
-    kotlin("multiplatform") version "1.9.20-RC2"
+    kotlin("multiplatform") version "2.0.0"
 }
 
-group = "me.user"
+group = "com.scosta"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -30,7 +30,11 @@ kotlin {
         }
     }
     sourceSets {
-        val nativeMain by getting
+        val nativeMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.0")
+            }
+        }
         val nativeTest by getting
     }
 }
