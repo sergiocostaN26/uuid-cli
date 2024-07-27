@@ -16,16 +16,15 @@ private fun Int.getFirstChunk() = (((this shr 14) shr 12) and 0xfff).toLong()
 private fun Int.getSecondChunk() = ((this shr 14) and 0xfff).toLong()
 private fun Int.getThirdChunk() = (this and 0x3fff).toLong()
 
+private fun Long.toHex(length: Int) = toString(16).padStart(length, '0')
+
 fun main(args: Array<String>) {
-
-
     val uuid = setOf(
-        (epochSeconds shr 4).toString(16).padStart(8, '0'),
-        ((epochSeconds and 0b1111 shl 12) + nanos.getFirstChunk()).toString(16).padStart(4, '0'),
-        ((VERSION shl 12) + nanos.getSecondChunk()).toString(16).padStart(4, '0'),
-        ((VARIANT shl 14) + nanos.getThirdChunk()).toString(16).padStart(4, '0'),
-        random.toString(16).padStart(12, '0')
+        (epochSeconds shr 4).toHex(8),
+        ((epochSeconds and 0b1111 shl 12) + nanos.getFirstChunk()).toHex(4),
+        ((VERSION shl 12) + nanos.getSecondChunk()).toHex(4),
+        ((VARIANT shl 14) + nanos.getThirdChunk()).toHex(4),
+        random.toHex(12)
     )
-
     println(uuid.joinToString("-"))
 }
