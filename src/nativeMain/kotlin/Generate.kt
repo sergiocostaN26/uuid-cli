@@ -1,5 +1,6 @@
 import kotlin.random.Random
 import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
 
 private const val VERSION: Long = 7
 private const val VARIANT: Long = 0b10
@@ -8,8 +9,12 @@ private const val RANDOM_B_TOP_LIMIT: Long = 0x4000000000000000 // 62 random bit
 
 object Generate {
 
-    fun now(): String {
-        val timestamp = Clock.System.now().toEpochMilliseconds()
+    fun now(): String = Clock.System.now().let(::generateWith)
+
+    fun at(instant: Instant): String = generateWith(instant)
+
+    private fun generateWith(instant: Instant): String {
+        val timestamp = instant.toEpochMilliseconds()
         val randomA = Random.nextLong(RANDOM_A_TOP_LIMIT)
         val randomB = Random.nextLong(RANDOM_B_TOP_LIMIT)
         return setOf(
