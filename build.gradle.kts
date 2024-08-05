@@ -35,6 +35,10 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.0")
             }
         }
-        val nativeTest by getting
+        val nativeTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+            }
+        }
     }
 }
