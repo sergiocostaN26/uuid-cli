@@ -3,8 +3,8 @@
 1. Go to one of the existing releases in [uuid-cli/releases](https://github.com/sergiocostaN26/uuid-cli/releases/).
 
 2. Copy the asset link of the `.kexe` file. 
-Take [uuid-cli/releases/download/v.0.0.1/uuid-cli.kexe](https://github.com/sergiocostaN26/uuid-cli/releases/download/v.0.0.1/uuid-cli.kexe) 
-copied from [uuid-cli/releases/tag/v.0.0.1](https://github.com/sergiocostaN26/uuid-cli/releases/tag/v.0.0.1) as example.
+Take [uuid-cli/releases/download/v0.0.1/uuid-cli_0.0.1.kexe](https://github.com/sergiocostaN26/uuid-cli/releases/download/v0.0.1/uuid-cli_0.0.1.kexe) 
+copied from [uuid-cli/releases/tag/v0.0.1](https://github.com/sergiocostaN26/uuid-cli/releases/tag/v0.0.1) as example.
 
 3. Run `brew create <copied link>`.
 
@@ -14,7 +14,7 @@ copied from [uuid-cli/releases/tag/v.0.0.1](https://github.com/sergiocostaN26/uu
 class UuidCli < Formula
   desc "Simple CLI to generate UUIDs v7 using Kotlin/Native."
   homepage "https://github.com/sergiocostaN26/uuid-cli"
-  url "https://github.com/sergiocostaN26/uuid-cli/releases/download/v.0.0.1/uuid-cli.kexe"
+  url "https://github.com/sergiocostaN26/uuid-cli/releases/download/v0.0.1/uuid-cli_0.0.1.kexe"
   sha256 "<sha256 hash should be automatically generated>"
   version "0.0.1"
   license "Apache-2.0"
