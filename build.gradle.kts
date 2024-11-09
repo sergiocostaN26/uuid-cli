@@ -26,6 +26,7 @@ kotlin {
         binaries {
             executable {
                 entryPoint = "main"
+                baseName = "${rootProject.name}_$version"
             }
         }
     }
