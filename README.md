@@ -23,5 +23,5 @@ This implementation follows the [RFC 9562](https://datatracker.ietf.org/doc/rfc9
 
 ### Troubleshooting
 
-If the CLI has not been merged into homebrew-core yet, follow the instructions [here](docs/install-formula-locally.md) to install 
-the Homebrew Formula locally.
+If the CLI has not been merged into homebrew-core yet, follow the instructions to 
+install the Homebrew Formula locally [here](docs/install-formula-locally.md).
